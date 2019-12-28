@@ -6,15 +6,15 @@ export default props => {
     const substractCount = () => setCount(count - 1);
 
     useEffect(() => {
-        alert("page didmount!")
+        console.log("page didmount!")
     }, []);
 
     useEffect(() => {
-        alert("page did rerender!")
+        console.log("page did rerender!")
     });
 
     useEffect(() => {
-        alert("count did update!")
+        console.log("count did update!")
     }, [count]);
 
 	return (
