@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { CLICK } from '../actions/types';
+import { asyncClick, syncClick } from '../actions';
 import Home from './Home';
 
 const About = props => {
@@ -21,20 +21,13 @@ const App = props => {
 			<div>
 				<button
 					onClick={() =>
-						dispatch({ type: CLICK, payload: { type: 'sync' } })
+						dispatch(syncClick())
 					}
 				>
 					syncClick!
 				</button>
 				<button
-					onClick={() =>
-						setTimeout(() => {
-							dispatch({
-								type: CLICK,
-								payload: { type: 'async' }
-							});
-						}, 500)
-					}
+					onClick={() => dispatch(asyncClick())}
 				>
 					asyncClick!
 				</button>
